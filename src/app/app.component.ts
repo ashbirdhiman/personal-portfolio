@@ -8,7 +8,7 @@ import {AboutComponent} from './about/about.component';
 import { CommonModule } from '@angular/common';
 import { DisplayNameComponent } from "./display-name/display-name.component";
 import { ContactComponent } from "./contact/contact.component";
-
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-root',
   // imports:[ThreeComponent],
@@ -24,14 +24,15 @@ import { ContactComponent } from "./contact/contact.component";
     AboutComponent,
     CommonModule,
     DisplayNameComponent,
-    ContactComponent
-],
+    ContactComponent,
+  ],
 
   // This makes it a standalone component
 })
 export class AppComponent {
-  title = 'my-angular-app';
-
+  constructor(private titleService: Title) {
+    this.titleService.setTitle('Ashbir Dhiman'); // Set the tab title
+  }
   isThreeSceneLoaded = false;
 
   onThreeSceneLoaded(event: boolean) {
