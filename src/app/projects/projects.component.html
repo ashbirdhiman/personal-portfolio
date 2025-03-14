@@ -1,0 +1,15 @@
+<section class="projects-section">
+  <h2 class="section-title">Projects</h2>
+  <div class="projects-container">
+    <div *ngFor="let project of projects" class="project-card">
+      <img [src]="project.image" [alt]="project.title" class="project-image" />
+      <div class="project-content">
+        <h3>{{ project.title }}</h3>
+        <p class="project-duration">{{ project.duration }}</p>
+        <ul>
+          <li *ngFor="let detail of project.details">{{ detail }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
