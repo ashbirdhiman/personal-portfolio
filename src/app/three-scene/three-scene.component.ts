@@ -1,4 +1,11 @@
-import { Component, ElementRef, ViewChild, AfterViewInit, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+  EventEmitter,
+  Output,
+} from '@angular/core';
 import * as THREE from 'three';
 
 @Component({
@@ -21,13 +28,18 @@ export class ThreeSceneComponent implements AfterViewInit {
 
   private initScene(): void {
     this.scene = new THREE.Scene();
-    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    this.camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
-    
+
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.canvasContainer.nativeElement.appendChild(this.renderer.domElement);
 
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    const geometry = new THREE.BoxGeometry(3, 3, 3);
     const material = new THREE.MeshStandardMaterial({ color: 0x0077ff });
     this.cube = new THREE.Mesh(geometry, material);
     this.scene.add(this.cube);
@@ -36,7 +48,12 @@ export class ThreeSceneComponent implements AfterViewInit {
     const light = new THREE.AmbientLight(0xffffff, 1);
     this.scene.add(light);
 
-    this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    this.camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
     this.camera.position.z = 5;
 
     // Start rendering loop
