@@ -38,7 +38,7 @@ export class ThreeSceneComponent implements AfterViewInit {
 
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.canvasContainer.nativeElement.appendChild(this.renderer.domElement);
-
+    this.renderer.setClearColor(0X0a0a23, 1);
     const geometry = new THREE.BoxGeometry(3, 3, 3);
     const material = new THREE.MeshStandardMaterial({ color: 0x0077ff });
     this.cube = new THREE.Mesh(geometry, material);
