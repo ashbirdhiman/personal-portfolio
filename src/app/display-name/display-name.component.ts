@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import {
   trigger,
   state,
@@ -6,37 +6,62 @@ import {
   animate,
   transition,
 } from '@angular/animations';
+import { SliderComponent } from '../slider/slider.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-display-name',
-  imports: [],
+  imports: [SliderComponent, CommonModule],
   templateUrl: './display-name.component.html',
   styleUrl: './display-name.component.css',
   standalone: true,
   animations: [
     trigger('fadeIn', [
-      state('void', style({ opacity: 0 })),
-      transition(':enter', [animate('1s ease-in', style({ opacity: 1 }))]),
+      state(
+        'in',
+        style({
+          opacity: 1,
+          transform: 'translateY(0)',
+        })
+      ),
+      state(
+        'out',
+        style({
+          opacity: 0,
+          transform: 'translateY(20px)',
+        })
+      ),
+      transition('out <=> in', [animate('500ms ease-in-out')]),
     ]),
   ],
 })
-export class DisplayNameComponent {
+export class DisplayNameComponent implements OnInit {
   inView: boolean = false;
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  constructor(private el: ElementRef) {}
 
   ngOnInit() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          this.inView = true;
-          this.renderer.addClass(entry.target, 'in-view');
-          observer.unobserve(entry.target);
-        }
-      });
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            this.inView = true;
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the component is visible
+      }
+    );
 
+    observer.observe(this.el.nativeElement);
+
+    // Animate text items
     const textItems = this.el.nativeElement.querySelectorAll('.text-item');
-    textItems.forEach((item: Element) => observer.observe(item));
+    textItems.forEach((item: Element, index: number) => {
+      item.classList.add('animate-item');
+      item.setAttribute('style', `animation-delay: ${index * 0.3}s`);
+    });
   }
 }

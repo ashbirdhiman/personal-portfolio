@@ -1,0 +1,17 @@
+<!-- slider.component.html -->
+<div class="slider-container">
+  <div class="skills-track">
+    <div class="skills-wrapper">
+      <div 
+        *ngFor="let skill of duplicatedSkills" 
+        class="skill-card"
+      >
+        <img 
+          [src]="skill.image" 
+          [alt]="skill.name" 
+          class="skill-logo"
+        >
+      </div>
+    </div>
+  </div>
+</div>

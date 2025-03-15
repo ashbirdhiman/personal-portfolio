@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { DisplayNameComponent } from "./display-name/display-name.component";
 import { ContactComponent } from "./contact/contact.component";
 import { Title } from '@angular/platform-browser';
+import { SliderComponent } from "./slider/slider.component";
 @Component({
   selector: 'app-root',
   // imports:[ThreeComponent],
@@ -24,8 +25,8 @@ import { Title } from '@angular/platform-browser';
     AboutComponent,
     CommonModule,
     DisplayNameComponent,
-    ContactComponent,
-  ],
+    ContactComponent
+],
 
   // This makes it a standalone component
 })
