@@ -31,13 +31,13 @@
   flex-direction: column;
   gap: 1rem;
 }
+
 ::ng-deep .experience-item img {
   width: 60px; /* Ensures uniform width */
   height: 60px; /* Fixed height */
   object-fit: contain; /* Prevents distortion */
   border-radius: 8px; /* Optional for styling */
 }
-
 
 .work-content_container {
   background-color: #1c1c3c;
@@ -148,4 +148,50 @@
 
 .experience-item li {
   margin: 5px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .work-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .work-canvas {
+    min-height: 200px;
+  }
+
+  .experience-item {
+    width: 100%;
+    max-width: none;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  .experience-item img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  .experience-item h3 {
+    font-size: 1.2em;
+  }
+
+  .experience-item p,
+  .experience-item li {
+    font-size: 0.9em;
+  }
+
+  .experience-section {
+    padding: 1rem;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+  }
+
+  .work-content {
+    gap: 0.5rem;
+  }
 }
