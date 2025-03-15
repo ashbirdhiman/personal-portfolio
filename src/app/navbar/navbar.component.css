@@ -16,6 +16,8 @@
   list-style: none;
   display: flex;
   gap: 2rem;
+  transition: max-height 0.3s ease-in-out;
+  overflow: hidden;
 }
 
 .nav-links li a {
@@ -27,4 +29,26 @@
 
 .nav-links li a:hover {
   color: #f0a500; /* Highlight color on hover */
+}
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    max-height: 0;
+  }
+
+  .nav-links.active {
+    max-height: 500px; /* Adjust based on the number of items */
+  }
+
+  .menu-icon {
+    display: block;
+  }
 }

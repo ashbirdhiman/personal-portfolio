@@ -26,12 +26,25 @@ export class ProfessionalExperienceComponent implements OnInit {
       id: 2,
       icon: 'assets/amdocs-logo.jpg',
       name: 'Software Developer',
-      pos: 'AUG 2020 - JUNE 2023',
+      pos: 'JAN 2022 - JUNE 2023',
       duration: 'Amdocs (Brite-bill), India',
       title: [
         'Performance & Modernization: Upgraded workflows using Java/Spring.',
         'Security & Scalability: Secured apps via Spring Security.',
         'Cross-Functional Delivery: Built real-time bill share module.',
+      ],
+    },
+    {
+      id: 3,
+      icon: 'assets/amdocs-logo.jpg',
+      name: 'Associate Software Engineer',
+      pos: 'AUG 2020 - JAN 2022',
+      duration: 'Amdocs (Brite-bill), India',
+      title: [
+        'Investigated Java code, configuration files and logs to identify root causes of issues.',
+        'Reduced troubleshooting time by 15% and customized Britebill tools in Java to meet customer requirements, improving team efficiency in Test-Driven Development (TDD) and tested using JUnit.',
+        'Collaborated effectively with the team to deliver high-availability solutions for critical applications.',
+        'Engaged with global customers to troubleshoot and resolve software issues effectively.',
       ],
     },
   ];

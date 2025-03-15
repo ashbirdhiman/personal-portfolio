@@ -9,9 +9,11 @@
   <p>Loading 3D Scene...</p>
 </div>
 
-<app-three-scene (sceneLoaded)="onThreeSceneLoaded($event)"></app-three-scene>
+<div class="three-scene-container">
+  <app-three-scene (sceneLoaded)="onThreeSceneLoaded($event)"></app-three-scene>
+</div>
 
-<div [class.hidden]="!isThreeSceneLoaded">
+<div class="content" [class.hidden]="!isThreeSceneLoaded">
   <app-display-name></app-display-name>
   <app-about id="about"></app-about>
   <app-professional-experience id="work"></app-professional-experience>
