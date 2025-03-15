@@ -1,31 +1,15 @@
 <section id="work" class="experience-section">
-  <div class="spotlight"></div>
   <div class="content">
     <h1 class="heading">Professional <span>Experience</span></h1>
-    <div class="work-container">
-      <div class="work-canvas">
-        <!-- 3D Model Canvas -->
-        <!-- Add Angular Three.js canvas here if needed --> 
-      </div>
-      <div class="work-content">
-        <div class="experience-container">
-          <div
-            *ngFor="let experience of workExperiences"
-            class="experience-item"
-          >
-            <div class="experience-header">
-              <img [src]="experience.icon" alt="{{ experience.name }} Icon" class="experience-icon" />
-              <div>
-                <h3>{{ experience.name }}</h3>
-                <p class="position">{{ experience.pos }}</p>
-                <p class="duration">{{ experience.duration }}</p>
-              </div>
-            </div>
-            <ul class="description">
-              <li *ngFor="let title of experience.title">{{ title }}</li>
-            </ul>
-          </div>
-        </div>
+    <div class="experience-container">
+      <div *ngFor="let experience of workExperiences" class="experience-item">
+        <img [src]="experience.icon" alt="{{ experience.name }} Icon" />
+        <h3>{{ experience.name }}</h3>
+        <p class="position">{{ experience.pos }}</p>
+        <p class="duration">{{ experience.duration }}</p>
+        <ul class="description">
+          <li *ngFor="let title of experience.title">{{ title }}</li>
+        </ul>
       </div>
     </div>
   </div>
