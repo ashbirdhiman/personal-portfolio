@@ -3,13 +3,21 @@
     <h1 class="heading">Professional <span>Experience</span></h1>
     <div class="experience-container">
       <div *ngFor="let experience of workExperiences" class="experience-item">
-        <img [src]="experience.icon" alt="{{ experience.name }} Icon" />
-        <h3>{{ experience.name }}</h3>
-        <p class="position">{{ experience.pos }}</p>
-        <p class="duration">{{ experience.duration }}</p>
-        <ul class="description">
-          <li *ngFor="let title of experience.title">{{ title }}</li>
-        </ul>
+        <div class="flip-card">
+          <!-- Front Side -->
+          <div class="flip-card-front">
+            <img [src]="experience.icon" alt="{{ experience.name }} Icon" />
+            <h3>{{ experience.name }}</h3>
+            <p class="position">{{ experience.pos }}</p>
+            <p class="duration">{{ experience.duration }}</p>
+          </div>
+          <!-- Back Side -->
+          <div class="flip-card-back">
+            <ul class="description">
+              <li *ngFor="let title of experience.title">{{ title }}</li>
+            </ul> 
+          </div>
+        </div>
       </div>
     </div>
   </div>

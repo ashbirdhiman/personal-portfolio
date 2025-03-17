@@ -1,14 +1,27 @@
-import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
-import { NgForOf } from '@angular/common';
+import { Component } from '@angular/core';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+} from '@angular/animations';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-professional-experience',
   templateUrl: './professional-experience.component.html',
   styleUrls: ['./professional-experience.component.css'],
-  imports: [NgForOf],
+  imports: [CommonModule],
+  animations: [
+    trigger('fadeInUp', [
+      state('void', style({ opacity: 0, transform: 'translateY(20px)' })),
+      transition(':enter', [animate('600ms ease-out')]),
+    ]),
+  ],
   standalone: true,
 })
-export class ProfessionalExperienceComponent implements OnInit {
+export class ProfessionalExperienceComponent {
   workExperiences = [
     {
       id: 1,
@@ -48,26 +61,4 @@ export class ProfessionalExperienceComponent implements OnInit {
       ],
     },
   ];
-
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
-
-  ngOnInit() {
-    console.log('Work Experiences:', this.workExperiences); // Debugging line
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          this.renderer.addClass(entry.target, 'in-view');
-          observer.unobserve(entry.target);
-        }
-      });
-    });
-
-    // Wait for the view to initialize before querying elements
-    setTimeout(() => {
-      const experienceItems =
-        this.el.nativeElement.querySelectorAll('.experience-item');
-      experienceItems.forEach((item: Element) => observer.observe(item));
-    }, 0);
-  }
 }
