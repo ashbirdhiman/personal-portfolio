@@ -118,12 +118,12 @@
   }
 
   .experience-item {
-    width: 90%; /* Full width */
-    height: auto; /* Adjust height dynamically */
+    width: 90%;
+    height: 300px; /* Fixed height to maintain flip effect */
   }
 
   .flip-card {
-    height: auto;
+    height: 100%; /* Consistent height for front and back */
   }
 
   .flip-card-front,
@@ -141,3 +141,4 @@
     margin-bottom: 0.4rem;
   }
 }
+
