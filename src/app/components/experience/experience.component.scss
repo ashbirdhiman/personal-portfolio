@@ -1,31 +1,27 @@
 .experience-container {
-  padding: var(--spacing-lg) 0;
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
-.timeline {
-  position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: var(--spacing-md) 0;
+.experience-content {
+  margin-top: 2rem;
 }
 
 .tabs-container {
   display: flex;
-  margin-top: 2rem;
 }
 
 .tabs-list {
   display: flex;
   flex-direction: column;
   width: 200px;
-  border-left: 2px solid rgba(0, 0, 0, 0.1);
+  border-left: 2px solid var(--section-bg-alt);
 }
 
 .tab-button {
-  font-family: "Roboto Mono", monospace;
-  font-size: 0.9rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.85rem;
   padding: 1rem 1.5rem;
   text-align: left;
   background: transparent;
@@ -34,31 +30,31 @@
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
+}
 
-  &::before {
-    content: "";
-    position: absolute;
-    left: -2px;
-    top: 0;
-    width: 2px;
-    height: 100%;
-    background-color: var(--primary-color);
-    transform: scaleY(0);
-    transition: transform 0.25s ease;
-  }
+.tab-button::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: var(--primary-color);
+  transform: scaleY(0);
+  transition: transform 0.25s ease;
+}
 
-  &:hover {
-    color: var(--primary-color);
-    background-color: rgba(0, 0, 0, 0.05);
-  }
+.tab-button:hover {
+  color: var(--primary-color);
+  background-color: var(--section-bg-alt);
+}
 
-  &.active {
-    color: var(--primary-color);
+.tab-button.active {
+  color: var(--primary-color);
+}
 
-    &::before {
-      transform: scaleY(1);
-    }
-  }
+.tab-button.active::before {
+  transform: scaleY(1);
 }
 
 .tab-panels {
@@ -69,26 +65,25 @@
 .tab-panel {
   display: none;
   animation: fadeIn 0.5s ease;
+}
 
-  &.active {
-    display: block;
-  }
+.tab-panel.active {
+  display: block;
 }
 
 .job-title {
   color: var(--text-color);
   font-size: 1.5rem;
-  font-weight: 700;
   margin-bottom: 0.5rem;
+}
 
-  .company {
-    color: var(--primary-color);
-  }
+.job-title .company {
+  color: var(--primary-color);
 }
 
 .job-duration {
-  font-family: "Roboto Mono", monospace;
-  font-size: 0.9rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.85rem;
   color: var(--text-color);
   opacity: 0.7;
   margin-bottom: 1.5rem;
@@ -98,21 +93,21 @@
   padding: 0;
   margin: 0;
   list-style: none;
+}
 
-  li {
-    position: relative;
-    padding-left: 1.75rem;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-    color: var(--text-color);
+.job-description li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: var(--text-color);
+}
 
-    &::before {
-      content: "▹";
-      position: absolute;
-      left: 0;
-      color: var(--primary-color);
-    }
-  }
+.job-description li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
 }
 
 .technologies {
@@ -122,22 +117,19 @@
   margin-top: 1.5rem;
 }
 
-.tech-tag {
-  background-color: rgba(0, 102, 204, 0.1);
+.technologies .tech-tag {
+  background-color: var(--section-bg-alt);
   color: var(--primary-color);
-  padding: 5px 12px;
-  border-radius: 20px;
+  font-family: 'Roboto Mono', monospace;
   font-size: 0.8rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background-color: var(--primary-color);
-    color: white;
-  }
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--border-radius);
 }
 
-/* Animation for tab transitions */
+.experience-highlight {
+  display: none;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -149,150 +141,69 @@
   }
 }
 
-/* Timeline styles */
-.timeline-item {
-  position: relative;
-  display: flex;
-  margin-bottom: var(--spacing-lg);
-
-  &:last-child {
-    margin-bottom: 0;
-
-    .timeline-marker .marker-line {
-      display: none;
-    }
-  }
-}
-
-.timeline-marker {
-  position: relative;
-  min-width: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  .marker-dot {
-    width: 20px;
-    height: 20px;
-    background-color: var(--primary-color);
-    border-radius: 50%;
-    position: relative;
-    z-index: 2;
-  }
-
-  .marker-line {
-    position: absolute;
-    top: 20px;
-    width: 3px;
-    height: calc(100% + var(--spacing-lg));
-    background-color: var(--primary-color);
-    opacity: 0.3;
-  }
-}
-
-.timeline-content {
-  flex: 1;
-}
-
-/* Experience highlight for mobile */
-.experience-highlight {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background-color: var(--card-bg);
-  border-radius: var(--border-radius);
-  border-left: 4px solid var(--primary-color);
-  display: none;
-}
-
-.highlight-content {
-  h3 {
-    color: var(--primary-color);
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    color: var(--text-color);
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-}
-
-/* Animation for scroll */
-.section-header,
-.timeline-item,
-.tabs-container {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive styles */
 @media (max-width: 768px) {
   .tabs-container {
     flex-direction: column;
   }
-
+  
   .tabs-list {
     flex-direction: row;
     width: 100%;
     overflow-x: auto;
     border-left: none;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid var(--section-bg-alt);
     margin-bottom: 1.5rem;
   }
-
+  
+  .tabs-list::-webkit-scrollbar {
+    height: 5px;
+  }
+  
   .tab-button {
     padding: 0.75rem 1rem;
     min-width: max-content;
-
-    &::before {
-      left: 0;
-      bottom: -2px;
-      top: auto;
-      width: 100%;
-      height: 2px;
-      transform: scaleX(0);
-    }
-
-    &.active::before {
-      transform: scaleX(1);
-    }
   }
-
+  
+  .tab-button::before {
+    left: 0;
+    bottom: -2px;
+    top: auto;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+  }
+  
+  .tab-button.active::before {
+    transform: scaleX(1);
+  }
+  
   .tab-panels {
     padding-left: 0;
   }
-
+  
   .experience-highlight {
     display: block;
+    margin-top: 4rem;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--primary-color);
   }
-
-  .timeline-marker {
-    min-width: 40px;
+  
+  .highlight-content h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
   }
-}
-
-@media (max-width: 480px) {
-  .job-title {
-    font-size: 1.3rem;
+  
+  .highlight-content p {
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
   }
-
-  .job-description li {
-    font-size: 0.95rem;
-  }
-
-  .timeline-marker {
-    min-width: 30px;
+  
+  .highlight-content p:last-child {
+    margin-bottom: 0;
   }
 }
