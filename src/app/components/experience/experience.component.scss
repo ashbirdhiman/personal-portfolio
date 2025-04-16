@@ -45,12 +45,12 @@
 }
 
 .tab-button:hover {
-  color: var(--primary-color);
+  color: var(--green);
   background-color: var(--section-bg-alt);
 }
 
 .tab-button.active {
-  color: var(--primary-color);
+  color: var(--green);
 }
 
 .tab-button.active::before {
@@ -72,7 +72,7 @@
 }
 
 .job-title {
-  color: var(--text-color);
+  color: var(--green);
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
@@ -84,7 +84,7 @@
 .job-duration {
   font-family: 'Roboto Mono', monospace;
   font-size: 0.85rem;
-  color: var(--text-color);
+  color: var(--green);
   opacity: 0.7;
   margin-bottom: 1.5rem;
 }

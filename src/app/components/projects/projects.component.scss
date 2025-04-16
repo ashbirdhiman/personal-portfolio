@@ -3,12 +3,9 @@
   margin: 0 auto;
   padding: 0 1.5rem;
 }
-
-/* Featured projects */
 .featured-projects {
   margin-top: 3rem;
 }
-
 .featured-project-card {
   position: relative;
   display: grid;
@@ -16,91 +13,85 @@
   align-items: center;
   margin-bottom: 6rem;
 }
-
 .featured-project-card:last-of-type {
   margin-bottom: 0;
 }
-
 .project-content {
   position: relative;
-  grid-column: 7 / -1;
+  grid-area: 1/1/-1/8;
+  grid-column: 7/-1;
   text-align: right;
   z-index: 2;
 }
-
 .project-overline {
   margin: 0 0 10px;
-  color: var(--primary-color);
-  font-family: monospace;
-  font-size: 0.85rem;
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: var(--fz-xs);
+  font-weight: 400;
 }
-
 .project-title {
-  color: var(--text-color);
+  color: var(--lightest-slate);
   font-size: clamp(24px, 5vw, 28px);
   margin-bottom: 1rem;
 }
-
 .project-title a {
   color: inherit;
 }
-
 .project-title a:hover {
-  color: var(--primary-color);
+  color: var(--green);
 }
-
 .project-description {
   position: relative;
   padding: 1.5rem;
   border-radius: var(--border-radius);
-  background-color: var(--card-bg);
-  color: var(--text-color);
+  background-color: var(--light-navy);
+  color: var(--light-slate);
+  font-size: var(--fz-md);
   line-height: 1.5;
   z-index: 2;
 }
-
+.project-description p {
+  margin: 0;
+}
 .project-features {
   position: relative;
   z-index: 2;
   padding: 1.5rem;
   list-style: none;
 }
-
 .project-features li {
   position: relative;
   padding-left: 1.5rem;
   margin-bottom: 0.5rem;
-  color: var(--text-color);
-  font-size: 0.9rem;
+  color: var(--slate);
+  font-size: var(--fz-sm);
 }
-
 .project-features li::before {
   content: "▹";
   position: absolute;
   left: 0;
-  color: var(--primary-color);
+  color: var(--green);
 }
-
 .project-tech-list {
   display: flex;
   flex-wrap: wrap;
   position: relative;
   z-index: 2;
   margin: 1rem 0;
+  padding: 0;
   gap: 0.5rem;
   justify-content: flex-end;
 }
-
 .tech-tag {
-  color: var(--text-color);
-  font-family: monospace;
-  font-size: 0.8rem;
+  color: var(--light-slate);
+  font-family: var(--font-mono);
+  font-size: var(--fz-xxs);
   white-space: nowrap;
-  background-color: rgba(0, 102, 204, 0.1);
+  background-color: var(--light-navy);
   padding: 0.25rem 0.5rem;
   border-radius: var(--border-radius);
 }
-
 .project-links {
   display: flex;
   align-items: center;
@@ -108,97 +99,60 @@
   gap: 1rem;
   justify-content: flex-end;
 }
-
 .project-links a {
-  color: var(--text-color);
+  color: var(--light-slate);
 }
-
 .project-links a:hover {
-  color: var(--primary-color);
+  color: var(--green);
 }
-
 .project-image {
-  grid-area: 1 / 1 / -1 / 8;
+  grid-area: 1/1/-1/8;
   position: relative;
   z-index: 1;
   height: 100%;
-  overflow: hidden;
-  background-color: var(--primary-color);
+  background-color: var(--green);
   border-radius: var(--border-radius);
-  transition: all 0.3s ease;
 }
-
-.project-image::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: var(--background-color);
-  mix-blend-mode: screen;
-  border-radius: var(--border-radius);
-  transition: all 0.3s ease;
-  z-index: 3;
-}
-
 .project-image-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--background-color);
-  border-radius: var(--border-radius);
+  background-color: var(--navy);
   opacity: 0.85;
-  transition: all 0.3s ease;
   z-index: 2;
 }
-
 img.project-image-content {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: var(--border-radius);
-  position: relative;
   z-index: 1;
 }
-
 .featured-project-card:hover .project-image-overlay {
   opacity: 0.3;
 }
-
-.featured-project-card:hover .project-image::before {
-  background: transparent;
-}
-
-/* Other projects */
 .other-projects-heading {
   margin: 6rem auto 3rem;
   text-align: center;
-  font-size: 1.5rem;
-  color: var(--text-color);
+  font-size: var(--fz-xl);
+  color: var(--lightest-slate);
 }
-
 .other-projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
 }
-
 .project-card {
   position: relative;
-  transition: all 0.3s ease;
+  cursor: default;
 }
-
 .project-card:hover {
   transform: translateY(-7px);
 }
-
 .project-card:hover .project-card-inner {
-  box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 30px -15px var(--navy-shadow);
 }
-
 .project-card-inner {
   display: flex;
   flex-direction: column;
@@ -206,10 +160,8 @@ img.project-image-content {
   height: 100%;
   padding: 2rem 1.75rem;
   border-radius: var(--border-radius);
-  background-color: var(--card-bg);
-  transition: all 0.3s ease;
+  background-color: var(--light-navy);
 }
-
 .project-top {
   display: flex;
   justify-content: space-between;
@@ -217,64 +169,59 @@ img.project-image-content {
   width: 100%;
   margin-bottom: 2rem;
 }
-
 .project-folder {
-  color: var(--primary-color);
+  color: var(--green);
 }
-
 .project-folder svg {
   width: 40px;
   height: 40px;
 }
-
 .project-card .project-links {
-  justify-content: flex-start;
+  gap: 0.75rem;
 }
-
 .project-card .project-title {
-  font-size: 1.2rem;
+  color: var(--lightest-slate);
+  font-size: var(--fz-lg);
   margin-bottom: 0.75rem;
 }
-
 .project-card .project-description {
-  font-size: 0.9rem;
-  padding: 0;
-  background-color: transparent;
+  color: var(--light-slate);
+  font-size: var(--fz-sm);
+  line-height: 1.5;
 }
-
 .project-card .project-tech-list {
   margin-top: 1.5rem;
-  justify-content: flex-start;
+  gap: 0.5rem;
 }
-
-/* Responsive */
+.project-card .tech-tag {
+  color: var(--slate);
+  font-family: var(--font-mono);
+  font-size: var(--fz-xxs);
+  white-space: nowrap;
+}
 @media (max-width: 768px) {
   .featured-project-card {
     margin-bottom: 4rem;
   }
-
-  .project-content,
-  .project-tech-list,
-  .project-links {
-    grid-column: 1 / -1;
+  .project-content {
+    grid-column: 1/-1;
+    padding: 2rem 0;
     text-align: left;
+  }
+  .project-tech-list {
     justify-content: flex-start;
   }
-
-  .project-content {
-    padding: 2rem 0;
+  .project-links {
+    justify-content: flex-start;
   }
-
   .project-image {
-    grid-column: 1 / -1;
+    grid-column: 1/-1;
     opacity: 0.25;
   }
-
   .other-projects-heading {
     margin: 4rem auto 2rem;
   }
 }
-
 @media (max-width: 480px) {
   .other-projects-grid {
     grid-template-columns: 1fr;
