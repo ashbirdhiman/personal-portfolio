@@ -1,0 +1,314 @@
+/* Variables */
+:root {
+  --dark-navy: #0a192f;
+  --navy: #112240;
+  --light-navy: #233554;
+  --lightest-navy: #303c55;
+  --navy-shadow: rgba(2, 12, 27, 0.7);
+  --slate: #a8b2d1; /* Lightened from #8892b0 */
+  --light-slate: #ccd6f6; /* Lightened */
+  --lightest-slate: #ffffff; /* Changed from #ccd6f6 to white for maximum contrast */
+  --white: #ffffff; /* Kept pure white */
+  --green: #64ffda;
+  --green-tint: rgba(100, 255, 218, 0.1);
+
+  --font-sans: "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+  --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+
+  --fz-xxs: 12px;
+  --fz-xs: 13px;
+  --fz-sm: 14px;
+  --fz-md: 16px;
+  --fz-lg: 18px;
+  --fz-xl: 20px;
+  --fz-xxl: 22px;
+  --fz-heading: 32px;
+
+  --border-radius: 4px;
+  --nav-height: 100px;
+  --nav-scroll-height: 70px;
+
+  --easing: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-scroll-height);
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--dark-navy);
+  color: var(--slate);
+  font-family: var(--font-sans);
+  font-size: var(--fz-md);
+  line-height: 1.3;
+}
+
+section {
+  margin: 0 auto;
+  padding: 100px 0;
+  max-width: 1000px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 10px 0;
+  font-weight: 600;
+  color: var(--lightest-slate);
+  line-height: 1.1;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 10px 0 40px;
+  width: 100%;
+  font-size: clamp(26px, 5vw, var(--fz-heading));
+  white-space: nowrap;
+
+  &::after {
+    content: "";
+    display: block;
+    position: relative;
+    width: 300px;
+    height: 1px;
+    margin-left: 20px;
+    background-color: var(--lightest-navy);
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+
+  .number {
+    margin-right: 10px;
+    color: var(--green);
+    font-family: var(--font-mono);
+    font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
+    font-weight: 400;
+  }
+}
+
+/* Link styles */
+a {
+  display: inline-block;
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+  color: inherit;
+  position: relative;
+  transition: var(--transition);
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: var(--green);
+  }
+}
+
+/* Button styles */
+.button {
+  color: var(--green);
+  background-color: transparent;
+  border: 1px solid var(--green);
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1rem;
+  font-family: var(--font-mono);
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+
+  &:hover,
+  &:focus {
+    background-color: var(--green-tint);
+    outline: none;
+  }
+
+  &.big {
+    padding: 1.25rem 1.75rem;
+    font-size: var(--fz-sm);
+  }
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.5s var(--easing) forwards;
+}
+
+.fade-up {
+  animation: fadeUp 0.5s var(--easing) forwards;
+}
+
+.fade-down {
+  animation: fadeDown 0.5s var(--easing) forwards;
+}
+
+.fade-left {
+  animation: fadeLeft 0.5s var(--easing) forwards;
+}
+
+.fade-right {
+  animation: fadeRight 0.5s var(--easing) forwards;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 
+ * SECTION BACKGROUND STYLES
+ * 
+ * These styles fix the issue of content being hidden behind the 3D background scene
+ * by adding proper backgrounds and z-index values to all content sections
+ */
+
+/* About section */
+.about-container {
+  position: relative;
+  z-index: 100;
+  background-color: var(--dark-navy);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px -15px var(--navy-shadow);
+  margin-top: 4rem;
+}
+
+/* Experience section */
+.experience-container {
+  position: relative;
+  z-index: 100;
+  background-color: rgba(17, 34, 64, 0.95);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px -15px var(--navy-shadow);
+  margin-top: 4rem;
+}
+
+/* Projects section */
+.projects-container {
+  position: relative;
+  z-index: 100;
+  background-color: var(--dark-navy);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px -15px var(--navy-shadow);
+  margin-top: 4rem;
+}
+
+/* Education section */
+.education-container {
+  position: relative;
+  z-index: 100;
+  background-color: rgba(17, 34, 64, 0.95);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px -15px var(--navy-shadow);
+  margin-top: 4rem;
+}
+
+/* Contact section */
+.contact-container {
+  position: relative;
+  z-index: 100;
+  background-color: var(--dark-navy);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px -15px var(--navy-shadow);
+  margin-top: 4rem;
+}
+
+/* Add these styles to your global stylesheet */
+#about,
+#experience,
+#projects,
+#education,
+#contact {
+  background-color: var(--dark-navy);
+  position: relative;
+  z-index: 100;
+}
+
+/* Even numbered sections get slightly different styling */
+#experience,
+#education {
+  background-color: rgba(17, 34, 64, 0.95);
+}
+
+/* Add an opaque background to sections to ensure text is visible */
+.section:not(.home-section) {
+  background-color: var(--dark-navy);
+  position: relative;
+  z-index: 100;
+  box-shadow: 0 10px 30px -15px var(--navy-shadow);
+  margin-top: 4rem; /* Creates space between sections */
+  border-top: 1px solid rgba(100, 255, 218, 0.2); /* Subtle separator */
+}

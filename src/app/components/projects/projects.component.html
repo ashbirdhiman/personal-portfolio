@@ -1,0 +1,121 @@
+<div class="projects-container">
+  <h2 class="section-heading" appScrollAnimation="fade-right">
+    <span class="number">03.</span> Notable Projects
+  </h2>
+
+  <div class="featured-projects">
+    @for (project of getFeaturedProjects(); track project.title; let i = $index)
+    {
+    <div
+      class="featured-project-card"
+      [class.is-right]="i % 2 === 1"
+      appScrollAnimation="fade-up"
+      [delay]="300 + i * 100"
+    >
+      <div class="project-content">
+        <p class="project-overline">Featured Project</p>
+        <h3 class="project-title">{{ project.title }}</h3>
+        <div class="project-description">
+          <p>{{ project.description }}</p>
+        </div>
+        <ul class="project-features">
+          @for (feature of project.features; track feature) {
+          <li>{{ feature }}</li>
+          }
+        </ul>
+        <div class="project-tech-list">
+          @for (tech of project.technologies; track tech) {
+          <span class="tech-tag">{{ tech }}</span>
+          }
+        </div>
+        <div class="project-links">
+          @if (project.github) {
+          <a
+            [href]="project.github"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub Repository"
+          >
+            <mat-icon>code</mat-icon>
+          </a>
+          } @if (project.demo) {
+          <a
+            [href]="project.demo"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Live Demo"
+          >
+            <mat-icon>launch</mat-icon>
+          </a>
+          }
+        </div>
+      </div>
+      <div class="project-image">
+        <div class="project-image-overlay"></div>
+        <img
+          [src]="project.image"
+          [alt]="project.title"
+          class="project-image-content"
+          loading="lazy"  
+          />
+      </div>
+    </div>
+    }
+  </div>
+
+  <h3 class="other-projects-heading" appScrollAnimation="fade-up">
+    Other Noteworthy Projects
+  </h3>
+
+  <div class="other-projects-grid">
+    @for (project of getOtherProjects(); track project.title; let i = $index) {
+    <div
+      class="project-card"
+      appScrollAnimation="fade-up"
+      [delay]="300 + i * 100"
+    >
+      <div class="project-card-inner">
+        <div class="project-top">
+          <div class="project-folder">
+            <mat-icon>folder</mat-icon>
+          </div>
+          <div class="project-links">
+            @if (project.github) {
+            <a
+              [href]="project.github"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub Repository"
+            >
+              <mat-icon>code</mat-icon>
+            </a>
+            } @if (project.demo) {
+            <a
+              [href]="project.demo"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Live Demo"
+            >
+              <mat-icon>launch</mat-icon>
+            </a>
+            }
+          </div>
+        </div>
+
+        <h3 class="project-title">{{ project.title }}</h3>
+        <div class="project-description">
+          <p>{{ project.description }}</p>
+        </div>
+
+        <div class="project-tech-list">
+          @for (tech of project.technologies.slice(0, 4); track tech) {
+          <span class="tech-tag">{{ tech }}</span>
+          } @if (project.technologies.length > 4) {
+          <span class="tech-tag">+{{ project.technologies.length - 4 }}</span>
+          }
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

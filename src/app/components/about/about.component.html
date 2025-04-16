@@ -1,0 +1,56 @@
+<div class="about-container">
+  <h2 class="section-heading" appScrollAnimation="fade-right">
+    <span class="number">01.</span> About Me
+  </h2>
+  
+  <div class="about-content">
+    <div class="about-text" appScrollAnimation="fade-up" [delay]="300">
+      <p>
+        Hello! I'm Ashbir, a Junior Software Developer with 3+ years of experience building 
+        scalable web applications. My journey in software development began during my studies 
+        at Thapar Institute of Engineering and Technology, where I learned the fundamentals of 
+        computer engineering.
+      </p>
+      <p>
+        I specialize in Java and Spring Boot for backend development, with experience in building 
+        RESTful APIs, implementing security measures, and optimizing database performance. I'm also 
+        proficient in frontend technologies like Angular, allowing me to work across the full stack.
+      </p>
+      <p>
+        As an AWS Certified Cloud Practitioner, I have hands-on experience with cloud-native 
+        development and deploying applications in containerized environments. I'm passionate about 
+        clean code, automated testing, and cross-functional collaboration.
+      </p>
+      <p>
+        When I'm not coding, I enjoy exploring new technologies, contributing to open-source projects, 
+        and continuously expanding my knowledge in the ever-evolving tech landscape.
+      </p>
+    </div>
+    
+    <div class="profile-container" appScrollAnimation="fade-left" [delay]="300">
+      <div class="profile-wrapper">
+        <div class="profile-img">
+          <!-- Placeholder for profile image -->
+          <div class="profile-placeholder">AD</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="skills-section" appScrollAnimation="fade-up" [delay]="500">
+    <h3>My Technical Skills</h3>
+    
+    <div class="skills-grid">
+      @for (skillSet of skills; track skillSet.category) {
+        <div class="skill-category">
+          <h4>{{skillSet.category}}</h4>
+          <ul>
+            @for (skill of skillSet.items; track skill) {
+              <li>{{skill}}</li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  </div>
+</div>

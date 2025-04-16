@@ -1,0 +1,73 @@
+<div class="experience-container">
+  <h2 class="section-heading" appScrollAnimation="fade-right">
+    <span class="number">02.</span> Professional Experience
+  </h2>
+
+  <div class="experience-content" appScrollAnimation="fade-up" [delay]="300">
+    <div class="tabs-container">
+      <div class="tabs-list">
+        @for (experience of experiences; track experience.company; let i =
+        $index) {
+        <button
+          class="tab-button"
+          [class.active]="isActiveTab(i)"
+          (click)="setActiveTab(i)"
+          [attr.aria-label]="'View ' + experience.company + ' experience'"
+        >
+          {{ experience.company }}
+        </button>
+        }
+      </div>
+
+      <div class="tab-panels">
+        @for (experience of experiences; track experience.company; let i =
+        $index) {
+        <div
+          class="tab-panel"
+          [class.active]="isActiveTab(i)"
+          [attr.aria-hidden]="!isActiveTab(i)"
+        >
+          <h3 class="job-title">
+            {{ experience.title }}
+            <span class="company"> {{ experience.company }}</span>
+          </h3>
+
+          <p class="job-duration">
+            {{ experience.date }} | {{ experience.location }}
+          </p>
+
+          <ul class="job-description">
+            @for (item of experience.description; track item) {
+            <li>{{ item }}</li>
+            }
+          </ul>
+
+          @if (experience.technologies) {
+          <div class="technologies">
+            @for (tech of experience.technologies; track tech) {
+            <span class="tech-tag">{{ tech }}</span>
+            }
+          </div>
+          }
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="experience-highlight" appScrollAnimation="fade-up" [delay]="600">
+    <div class="highlight-content">
+      <h3>Career Highlight</h3>
+      <p>
+        During my time at Amdocs, I was recognized for outstanding performance
+        and promoted from Associate Software Engineer to Software Developer
+        within 18 months, faster than the typical timeline.
+      </p>
+      <p>
+        My contributions to the real-time bill-sharing module helped the company
+        deliver a critical feature to over 10 million users, significantly
+        enhancing customer satisfaction scores.
+      </p>
+    </div>
+  </div>
+</div>

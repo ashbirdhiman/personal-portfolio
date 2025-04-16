@@ -1,0 +1,50 @@
+<div class="education-container">
+  <h2 class="section-heading" appScrollAnimation="fade-right">
+    <span class="number">04.</span> Education & Certifications
+  </h2>
+
+  <div class="education-timeline" appScrollAnimation="fade-up" [delay]="300">
+    @for (education of educationItems; track education.institution; let i =
+    $index) {
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+      <div
+        class="timeline-content"
+        [attr.data-year]="education.date.split(' - ')[0]"
+      >
+        <h3 class="degree">{{ education.degree }}</h3>
+        <p class="institution">
+          {{ education.institution }} | {{ education.location }}
+        </p>
+        <p class="duration">{{ education.date }}</p>
+
+        @if (education.description) {
+        <p class="description">{{ education.description }}</p>
+        } @if (education.achievements) {
+        <div class="achievements">
+          <h4>Key Achievements:</h4>
+          <ul>
+            @for (achievement of education.achievements; track achievement) {
+            <li>{{ achievement }}</li>
+            }
+          </ul>
+        </div>
+        }
+      </div>
+    </div>
+    }
+  </div>
+
+  <div
+    class="certifications-section"
+    appScrollAnimation="fade-up"
+    [delay]="600"
+  >
+    <h3>Certifications & Publications</h3>
+    <ul class="certifications-list">
+      @for (certification of certifications; track certification) {
+      <li>{{ certification }}</li>
+      }
+    </ul>
+  </div>
+</div>

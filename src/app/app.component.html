@@ -1,0 +1,85 @@
+<div class="app-container">
+  <!-- Background 3D Scene moved to home component -->
+  <!-- Header Navigation -->
+  <header class="header">
+    <div class="logo">
+      <a href="#" (click)="scrollToSection('home'); $event.preventDefault()">AD</a>
+    </div>
+    
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+      <ul>
+        @for (item of navItems; track item.label) {
+          <li>
+            <a href="#{{item.target}}" (click)="scrollToSection(item.target); $event.preventDefault()">
+              {{item.label}}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+    
+    <!-- Mobile Navigation Toggle -->
+    <button class="mobile-menu-toggle" (click)="toggleMobileMenu()">
+      <mat-icon>{{isMobileMenuOpen ? 'close' : 'menu'}}</mat-icon>
+    </button>
+  </header>
+  
+  <!-- Mobile Navigation Menu -->
+  <div class="mobile-nav" [class.open]="isMobileMenuOpen">
+    <ul>
+      @for (item of navItems; track item.label) {
+        <li>
+          <a href="#{{item.target}}" (click)="scrollToSection(item.target); $event.preventDefault()">
+            {{item.label}}
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+  
+  <!-- Main Content Sections with higher z-index -->
+  <main class="main-content">
+    <section id="home" class="section home-section">
+      <app-home></app-home>
+    </section>
+    
+    <section id="about" class="section">
+      <app-about></app-about>
+    </section>
+    
+    <section id="experience" class="section">
+      <app-experience></app-experience>
+    </section>
+    
+    <section id="projects" class="section">
+      <app-projects></app-projects>
+    </section>
+    
+    <section id="education" class="section">
+      <app-education></app-education>
+    </section>
+    
+    <section id="contact" class="section">
+      <app-contact></app-contact>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; {{2025}} Ashbir Singh Dhiman. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://github.com/ashbirdhiman" target="_blank" aria-label="GitHub">
+          <mat-icon>code</mat-icon>
+        </a>
+        <a href="https://linkedin.com/in/ashbirdhiman" target="_blank" aria-label="LinkedIn">
+          <mat-icon>linkedin</mat-icon>
+        </a>
+        <a href="mailto:ashbir.dhimanwork@gmail.com" aria-label="Email">
+          <mat-icon>email</mat-icon>
+        </a>
+      </div>
+    </div>
+  </footer>
+</div>

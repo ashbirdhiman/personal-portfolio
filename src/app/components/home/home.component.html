@@ -1,0 +1,34 @@
+<div class="home-container">
+  <!-- Background scene added to home component only - now full screen -->
+  <app-background-scene class="home-background"></app-background-scene>
+  
+  <div class="content">
+    <div class="intro-text" appScrollAnimation="fade-up" [delay]="300">
+      <p class="greeting">Hi, my name is</p>
+      <h1 class="name">Ashbir Dhiman</h1>
+      <h2 class="tagline">
+        <span>{{ introText }} </span>
+        <span class="typed-text">{{ currentRole }}</span>
+        <span class="cursor"></span>
+      </h2>
+      <p class="description">
+        Junior Software Developer with 3+ years of experience building scalable web applications 
+        using Java, Spring Boot, and cloud-native technologies. AWS Certified Cloud Practitioner.
+      </p>
+    </div>
+    
+    <div class="cta-buttons" appScrollAnimation="fade-up" [delay]="600">
+      <a href="#projects" class="button">View My Work</a>
+      <a href="#contact" class="button outlined">Get In Touch</a>
+    </div>
+    
+    <div class="scroll-down" appScrollAnimation="fade-in" [delay]="900">
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
+      <div>
+        <span class="arrow-down"></span>
+      </div>
+    </div>
+  </div>
+</div>

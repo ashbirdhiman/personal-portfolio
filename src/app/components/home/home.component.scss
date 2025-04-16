@@ -1,0 +1,189 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 1.5rem;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent; /* Changed to transparent */
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  
+  // Style for background scene component to cover full screen
+  .home-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    z-index: 10; /* Keep this lower than content */
+  }
+  
+  .content {
+    max-width: 1000px;
+    margin: 0 auto;
+    z-index: 50; /* Higher than background but lower than header/footer */
+    position: relative; // Ensure content stays above background
+  }
+  
+  .intro-text {
+    margin-bottom: 3rem;
+    
+    .greeting {
+      color: var(--green);
+      font-family: var(--font-mono);
+      font-size: var(--fz-md);
+      margin-bottom: 1rem;
+      font-weight: 600; /* Make greeting bolder */
+    }
+    
+    .name {
+      font-size: clamp(40px, 8vw, 80px);
+      color: var(--white); /* Changed from lightest-slate to white */
+      font-weight: 700;
+      line-height: 1.1;
+      margin: 0;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Add text shadow for better visibility */
+    }
+    
+    .tagline {
+      font-size: clamp(var(--fz-lg), 5vw, var(--fz-xxl));
+      line-height: 1.2;
+      margin: 1.5rem 0;
+      color: var(--light-slate); /* Lightened color */
+      font-weight: 500;
+      
+      .typed-text {
+        color: var(--white); /* Lightened color */
+      }
+      
+      .cursor {
+        display: inline-block;
+        width: 3px;
+        height: 1em;
+        background-color: var(--green);
+        margin-left: 5px;
+        animation: blink 1s step-end infinite;
+        vertical-align: text-bottom;
+      }
+    }
+    
+    .description {
+      max-width: 540px;
+      color: var(--light-slate); /* Lightened color */
+      font-size: var(--fz-lg);
+      line-height: 1.5;
+      margin-top: 1.5rem;
+      font-weight: 500; /* Add weight for better visibility */
+    }
+  }
+  
+  .cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    
+    @media (max-width: 480px) {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .button {
+      color: var(--green);
+      background-color: transparent;
+      border: 1px solid var(--green);
+      border-radius: var(--border-radius);
+      padding: 1rem 1.75rem;
+      font-family: var(--font-mono);
+      font-size: var(--fz-sm);
+      line-height: 1;
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition);
+      
+      &:hover {
+        background-color: var(--green-tint);
+        transform: translateY(-5px);
+      }
+      
+      &.outlined {
+        background-color: var(--green-tint);
+      }
+    }
+  }
+  
+  .scroll-down {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .mouse {
+      width: 25px;
+      height: 40px;
+      border: 2px solid var(--light-slate);
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      padding-top: 7px;
+      
+      .wheel {
+        width: 3px;
+        height: 8px;
+        background-color: var(--green);
+        border-radius: 3px;
+        animation: mouse-wheel 1.5s ease infinite;
+      }
+    }
+    
+    .arrow-down {
+      width: 10px;
+      height: 10px;
+      display: block;
+      border-right: 2px solid var(--light-slate);
+      border-bottom: 2px solid var(--light-slate);
+      transform: rotate(45deg);
+      margin: 10px 0;
+      animation: arrow-down 1.5s ease infinite;
+    }
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes mouse-wheel {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+}
+
+@keyframes arrow-down {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-5px, -5px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+}
