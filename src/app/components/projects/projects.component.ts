@@ -58,7 +58,6 @@ export class ProjectsComponent {
         'MVC',
       ],
       github: 'https://github.com/ashbirdhiman/appointwell',
-      demo: 'https://appointwell-demo.herokuapp.com',
       featured: true,
       image: 'assets/images/projects/appointwell.png',
       imageAlt: 'Appoint Well',
