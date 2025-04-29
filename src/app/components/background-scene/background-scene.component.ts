@@ -85,21 +85,21 @@ export class BackgroundSceneComponent implements OnInit, AfterViewInit {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(window.innerWidth, window.innerHeight);
-    this.renderer.setClearColor(0x061428, 1); // Darkened background for better text contrast
+    // this.renderer.setClearColor(0x061428, 1); // Darkened background for better text contrast
 
-    // Append to container
+    // // Append to container
     this.rendererContainer.nativeElement.appendChild(this.renderer.domElement);
   }
 
   private createParticles(): void {
     // Create particles
-    const particleCount = window.innerWidth <= 768 ? 500 : 1500;
+    const particleCount = window.innerWidth <= 768 ? 100 : 500;
     const particleGeometry = new THREE.BufferGeometry();
     const particlePositions = new Float32Array(particleCount * 3);
     const particleSizes = new Float32Array(particleCount);
 
     // Set random positions
-    for (let i = 0; i < particleCount * 3; i += 3) {
+    for (let i = 0; i < particleCount * 3; i += 1) {
       particlePositions[i] = (Math.random() - 0.5) * 100;
       particlePositions[i + 1] = (Math.random() - 0.5) * 100;
       particlePositions[i + 2] = (Math.random() - 0.5) * 100;
@@ -118,7 +118,7 @@ export class BackgroundSceneComponent implements OnInit, AfterViewInit {
 
     // Create point materials with different colors - increase opacity and size
     const particleMaterial1 = new THREE.PointsMaterial({
-      color: 0x64ffda,
+      color: 0xffd700,
       size: 0.7, // Increased from 0.5
       transparent: true,
       opacity: 0.9, // Increased from 0.8
@@ -126,7 +126,7 @@ export class BackgroundSceneComponent implements OnInit, AfterViewInit {
     });
 
     const particleMaterial2 = new THREE.PointsMaterial({
-      color: 0x8892b0,
+      color: 0xffd700,
       size: 0.4, // Increased from 0.3
       transparent: true,
       opacity: 0.7, // Increased from 0.6
@@ -166,17 +166,17 @@ export class BackgroundSceneComponent implements OnInit, AfterViewInit {
       new THREE.BufferAttribute(centralPositions, 3)
     );
 
-    const centralMaterial = new THREE.PointsMaterial({
-      color: 0x64ffda,
-      size: 0.7,
-      transparent: true,
-      opacity: 0.7, // Reduced from 0.8 for better text readability
-      blending: THREE.AdditiveBlending,
-    });
+    // const centralMaterial = new THREE.PointsMaterial({
+    //   color: 0x64ffda,
+    //   size: 0.7,
+    //   transparent: true,
+    //   opacity: 0.7, // Reduced from 0.8 for better text readability
+    //   blending: THREE.AdditiveBlending,
+    // });
 
-    const centralCloud = new THREE.Points(centralGeometry, centralMaterial);
-    this.particles.push(centralCloud);
-    this.scene.add(centralCloud);
+    // const centralCloud = new THREE.Points(centralGeometry, centralMaterial);
+    // this.particles.push(centralCloud);
+    // this.scene.add(centralCloud);
   }
 
   private animate(): void {
