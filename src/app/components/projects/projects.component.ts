@@ -79,7 +79,7 @@ export class ProjectsComponent {
         'SSL',
         'Web Hosting',
       ],
-      demo: 'https://hitech-steels.vercel.app/',
+      demo: 'https://hitechsteels.net/',
       featured: false,
       image: 'assets/images/projects/hi-techsteel.jpg',
       imageAlt: 'HitechSteels Website',
