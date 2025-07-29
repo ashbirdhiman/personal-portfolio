@@ -50,7 +50,8 @@ export class EducationComponent {
   ];
 
   certifications = [
-    'AWS Certified Cloud Practitioner',
+    'AWS Certified Solution Architect,2025',
+    'AWS Certified Cloud Practitioner,2025',
     'Elsevier Journal Publication: "Comparison of AODV and DSR in MANETs", January 2020, co-authored with AK Verma, Arshdeep Kaur',
   ];
 }
